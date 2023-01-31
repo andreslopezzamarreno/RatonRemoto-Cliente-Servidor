@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "EntregaFinalPSP"
-include ':app'
+include ':RatonRemoto'
