@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Entrega Final PSP"
         android:textSize="30dp"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
 
 
     <Button
+        android:backgroundTint="@color/verde"
         android:id="@+id/inicio_sesion"
         android:layout_width="200dp"
         android:text="Iniciar Sesion"

@@ -9,7 +9,7 @@ import java.net.Socket;
 
 public class Servidor {
     public static void main(String[] args) {
-        int socket = 1234;
+        int socket = 9999;
         ServerSocket servidor;
         BufferedReader br;
         String cordenadas;
