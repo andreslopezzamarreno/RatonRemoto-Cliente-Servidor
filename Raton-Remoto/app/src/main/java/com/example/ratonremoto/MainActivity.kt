@@ -85,9 +85,7 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
         do {
             lectura = br.readLine()
             println(lectura.split(" ")[0])
-            return usuarioPasado.usuario == lectura.split(" ")[0] && usuarioPasado.pass == lectura.split(
-                " "
-            )[1]
+            return usuarioPasado.usuario == lectura.split(" ")[0] && usuarioPasado.pass == lectura.split(" ")[1]
         } while (lectura != null)
     }
 

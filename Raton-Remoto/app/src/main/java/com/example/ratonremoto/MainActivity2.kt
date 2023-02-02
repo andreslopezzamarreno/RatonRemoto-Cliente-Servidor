@@ -8,7 +8,7 @@ import android.view.View.OnTouchListener
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ratonremoto.databinding.ActivityMain2Binding
 
-class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
+class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
 
     //En esta clase esta el la conexion con servidor/control del surface/control de botones
     private lateinit var binding: ActivityMain2Binding
@@ -17,7 +17,7 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
     private var posInicialY: Int = 0
     private var x: Int = 0
     private var y: Int = 0
-    private lateinit var mensaje:String
+    private lateinit var mensaje: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +39,15 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
                     //SIEMPRE al tocar SurfaceView
                     posInicialX = event.x.toInt()
                     posInicialY = event.y.toInt()
-                }
-                else if (event?.action == MotionEvent.ACTION_MOVE) {
+                } else if (event?.action == MotionEvent.ACTION_MOVE) {
                     //Cuando se detecta movimiento cojo la cordenada de movimiento
                     x = event.x.toInt()
                     y = event.y.toInt()
-                    //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia, direccion y sentido
-                    val coordenadas:String = ((x - posInicialX) * 2).toString() +" " + ((y - posInicialY) * 2).toString()
+                    //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia --> direccion y sentido
+                    val coordenadas: String =
+                        ((x - posInicialX) * 2).toString() + " " + ((y - posInicialY) * 2).toString()
                     //Esa coordenada la envio al servidor y controlo el movimiento del raton desde alli
-                    if(esRelleno()){
+                    if (esRelleno()) {
                         //Necesidad de hilo para hacer conexion a internet --> El Main no deja
                         //Sin añadir el hilo da error -> android.os.NetworkOnMainThreadException
                         //Creo hilo y paso las coordenadas de movimiento al servidor
@@ -66,18 +66,18 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
 
     override fun onClick(v: View?) {
         //Controlo Pulsacion de botones
-        when(v?.id){
-            binding.botonDerecho.id ->{
+        when (v?.id) {
+            binding.botonDerecho.id -> {
                 //Si es boton derecho
                 mensaje = "der"
             }
-            binding.botonIzquierdo.id ->{
+            binding.botonIzquierdo.id -> {
                 //Si es boton izquierdo
                 mensaje = "izq"
             }
         }
         //Sea boton izquierdo o derecho envio el mensaje y controlo desde servidor
-        if(esRelleno()){
+        if (esRelleno()) {
             hilo = Hilo(
                 binding.textServidor.text.toString(),
                 binding.textPuerto.text.toString().toInt(),
@@ -88,7 +88,7 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
     }
 
     //Metodo para ver si la ip del servidor y el puerto estan puestos
-    private fun esRelleno():Boolean{
-        return !(binding.textServidor.text.isEmpty()||binding.textPuerto.text.isEmpty())
+    private fun esRelleno(): Boolean {
+        return !(binding.textServidor.text.isEmpty() || binding.textPuerto.text.isEmpty())
     }
 }
