@@ -15,6 +15,7 @@ import com.example.ratonremoto.Usuario
 
 class DialogoSesion : DialogFragment() {
     //Funcionalida del dialogo de inicio de sesion
+    //parte grafica --> dialogo_inicio_sesion.xml
     private lateinit var vista: View
     private lateinit var usuario: EditText
     private lateinit var contrasenia: EditText
@@ -23,11 +24,12 @@ class DialogoSesion : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        //inicializo interfaz para que le pueda llegar al Main el Usuario de registro
         interfaz = context as OnDialogoInterfaz
     }
 
-    //Creacion del dialogo
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        //Creo dialogo y lo retorno
         val builder = AlertDialog.Builder(requireContext())
         vista = LayoutInflater.from(requireContext()).inflate(R.layout.dialogo_inicio_sesion, null)
         builder.setView(vista)
@@ -40,6 +42,7 @@ class DialogoSesion : DialogFragment() {
     }
 
     private fun instancias() {
+        //Inicializo elemento graficos del dialogo_inicio_sesion.xml
         usuario = vista.findViewById(R.id.edit_user)
         contrasenia = vista.findViewById(R.id.edit_password)
         usuario = vista.findViewById(R.id.edit_user)

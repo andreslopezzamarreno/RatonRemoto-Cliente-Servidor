@@ -35,9 +35,9 @@ public class Servidor {
                 cordenadas = br.readLine();
 
                 //comparo si se ha hecho pulsacion en boton o en el SurfaceView
-                if (cordenadas.equals("derecho")) {
+                if (cordenadas.equals("der")) {
                     control.mouseRelease(InputEvent.getMaskForButton(3));
-                } else if (cordenadas.equals("izquierdo")) {
+                } else if (cordenadas.equals("izq")) {
                     control.mousePress(InputEvent.getMaskForButton(1));
                     control.mouseRelease(InputEvent.getMaskForButton(1));
                 } else {

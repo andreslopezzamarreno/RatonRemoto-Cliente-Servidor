@@ -10,6 +10,7 @@ import com.example.ratonremoto.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
 
+    //En esta clase esta el la conexion con servidor/control del surface/control de botones
     private lateinit var binding: ActivityMain2Binding
     private lateinit var hilo: Hilo
     private var posInicialX: Int = 0
@@ -33,16 +34,23 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
         //controlo SurfaceView
         when (v?.id) {
             binding.surface.id -> {
-                if (event?.action == MotionEvent.ACTION_MOVE) {
-                    //cuando se detecta movimiento cojo la cordenada a donde se mueve
+                if (event?.action == MotionEvent.ACTION_DOWN) {
+                    //Detecto toque --> registro coordenada inicial
+                    //SIEMPRE al tocar SurfaceView
+                    posInicialX = event.x.toInt()
+                    posInicialY = event.y.toInt()
+                }
+                else if (event?.action == MotionEvent.ACTION_MOVE) {
+                    //Cuando se detecta movimiento cojo la cordenada de movimiento
                     x = event.x.toInt()
                     y = event.y.toInt()
-                    //resto la cordenada de movimiento a la cordenda inicial para ver la diferencia, direccion y sentido
+                    //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia, direccion y sentido
                     val coordenadas:String = ((x - posInicialX) * 2).toString() +" " + ((y - posInicialY) * 2).toString()
-                    //esa coordenada la envio al servidor y controlo el movimiento del raton desde alli
+                    //Esa coordenada la envio al servidor y controlo el movimiento del raton desde alli
                     if(esRelleno()){
+                        //Necesidad de hilo para hacer conexion a internet --> El Main no deja
                         //Sin añadir el hilo da error -> android.os.NetworkOnMainThreadException
-                        //Que es que el metodo Main no puede hacer la conexion a internet
+                        //Creo hilo y paso las coordenadas de movimiento al servidor
                         hilo = Hilo(
                             binding.textServidor.text.toString(),
                             binding.textPuerto.text.toString().toInt(),
@@ -50,10 +58,6 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
                         )
                         hilo.start()
                     }
-                } else if (event?.action == MotionEvent.ACTION_DOWN) {
-                    //detecto toque --> registro coordenada inicial
-                    posInicialX = event.x.toInt()
-                    posInicialY = event.y.toInt()
                 }
             }
         }
@@ -61,16 +65,18 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        //controlo Pulsacion de botones
+        //Controlo Pulsacion de botones
         when(v?.id){
             binding.botonDerecho.id ->{
-                mensaje = "derecho"
+                //Si es boton derecho
+                mensaje = "der"
             }
             binding.botonIzquierdo.id ->{
-                mensaje = "izquierdo"
+                //Si es boton izquierdo
+                mensaje = "izq"
             }
         }
-        //sea boton izquierdo o derecho envio el mensaje y controlo desde servidor
+        //Sea boton izquierdo o derecho envio el mensaje y controlo desde servidor
         if(esRelleno()){
             hilo = Hilo(
                 binding.textServidor.text.toString(),
@@ -81,7 +87,7 @@ class MainActivity2 : AppCompatActivity(),OnTouchListener, OnClickListener {
         }
     }
 
-    //metodo para ver si la ip del servidor y el puerto estan puestos
+    //Metodo para ver si la ip del servidor y el puerto estan puestos
     private fun esRelleno():Boolean{
         return !(binding.textServidor.text.isEmpty()||binding.textPuerto.text.isEmpty())
     }
