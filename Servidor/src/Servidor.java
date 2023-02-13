@@ -53,6 +53,7 @@ public class Servidor {
                     //muevo raton sumando las cordenadas pasadas mas la posicion actual
                     control.mouseMove(movimientoX + cordX, movimientoY + cordY);
 
+
                     System.out.println(cordenadas);
                     cliente.close();
                     br.close();

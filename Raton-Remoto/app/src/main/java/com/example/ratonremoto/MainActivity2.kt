@@ -45,7 +45,7 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                     y = event.y.toInt()
                     //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia --> direccion y sentido
                     val coordenadas: String =
-                        ((x - posInicialX) * 2).toString() + " " + ((y - posInicialY) * 2).toString()
+                        ((x - posInicialX) * 3).toString() + " " + ((y - posInicialY) * 3).toString()
                     //Esa coordenada la envio al servidor y controlo el movimiento del raton desde alli
                     if (esRelleno()) {
                         //Necesidad de hilo para hacer conexion a internet --> El Main no deja
@@ -57,6 +57,7 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                             coordenadas
                         )
                         hilo.start()
+                        
                     }
                 }
             }

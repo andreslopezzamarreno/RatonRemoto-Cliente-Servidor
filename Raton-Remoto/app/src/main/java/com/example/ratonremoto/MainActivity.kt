@@ -45,11 +45,11 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
 
     private fun cifrar(usuario: Usuario) {
         //cifrar
-        //Creo clave de cifrado eh sistema AES
+        //Creo clave de cifrado eh sistema AES desde base64
         val byteSecretKey: ByteArray = "aG9sYXF1ZXRsYQ==".toByteArray()
         val secretKeySpec = SecretKeySpec(byteSecretKey, "AES")
         val cipher = Cipher.getInstance("AES")
-        //inicializo con claveSecreta
+        //inico cifrado con clave secreta
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec)
         //Cifro la contraseña del usuario pasado y lo convierto a String
         val mensajeEncriptado: ByteArray = cipher.doFinal(usuario.pass.toByteArray())
