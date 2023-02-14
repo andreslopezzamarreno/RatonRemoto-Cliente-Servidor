@@ -15,11 +15,11 @@ class Hilo(private var ip: String,private var puerto: Int, private var cord: Str
 
     override fun run() {
         super.run()
-        //Hago conexion con servido y envio las cordenadas/pulsacion del boton
+        //Hago conexion con servidor y envio las cordenadas/pulsacion del boton
         //Servidor y puerto los cojo de los Textview del activity_main2.xml
         client = Socket(ip, puerto)
         out = PrintWriter(client.getOutputStream(), true)
-        //envio coordenadas/pulsacion boton derecho o izquierdo --> Depende de que se pulse
+        //Envio coordenadas/pulsacion boton derecho o izquierdo --> Depende de que se pulse
         out.println(cord)
         out.close()
         client.close()

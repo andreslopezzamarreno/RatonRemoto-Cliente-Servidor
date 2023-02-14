@@ -15,7 +15,7 @@ import com.example.ratonremoto.Usuario
 
 class DialogoSesion : DialogFragment() {
     //Funcionalida del dialogo de inicio de sesion
-    //parte grafica --> dialogo_inicio_sesion.xml
+    //Parte grafica --> dialogo_inicio_sesion.xml
     private lateinit var vista: View
     private lateinit var usuario: EditText
     private lateinit var contrasenia: EditText
@@ -24,7 +24,7 @@ class DialogoSesion : DialogFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        //inicializo interfaz para que le pueda llegar al Main el Usuario de registro
+        //Inicializo interfaz para que le pueda llegar al Main el Usuario de registro
         interfaz = context as OnDialogoInterfaz
     }
 
@@ -51,19 +51,19 @@ class DialogoSesion : DialogFragment() {
 
     override fun onResume() {
         super.onResume()
-        //si no esta relleno los datos --> Toast
-        //si relleno --> paso Usuario a main
         botonInicio.setOnClickListener {
             if (usuario.text.toString().isEmpty() || contrasenia.text.toString().isEmpty()) {
+                //Si no esta relleno los datos --> Toast
                 Toast.makeText(requireContext(), "Algun dato vacio", Toast.LENGTH_SHORT).show()
             } else {
+                //Si relleno --> paso Usuario a Main
                 interfaz.pasarUsuario(Usuario(usuario.text.toString(), contrasenia.text.toString()))
                 dismiss()
             }
         }
     }
 
-    //interzar para pasar datos dialogo-ActivityMain
+    //Interfaz para pasar datos dialogo-ActivityMain.kt
     interface OnDialogoInterfaz {
         fun pasarUsuario(usuario: Usuario)
     }

@@ -10,7 +10,7 @@ import com.example.ratonremoto.databinding.ActivityMain2Binding
 
 class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
 
-    //En esta clase esta el la conexion con servidor/control del surface/control de botones
+    //En esta clase esta la conexion con servidor,control del surface y control de botones
     private lateinit var binding: ActivityMain2Binding
     private lateinit var hilo: Hilo
     private var posInicialX: Int = 0
@@ -24,14 +24,14 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
         binding = ActivityMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //controlo las pulsacion de los botones y del SurfaceView
+        //Controlo las pulsacion de los botones o del SurfaceView
         binding.surface.setOnTouchListener(this)
         binding.botonDerecho.setOnClickListener(this)
         binding.botonIzquierdo.setOnClickListener(this)
     }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        //controlo SurfaceView
+        //Controlo SurfaceView
         when (v?.id) {
             binding.surface.id -> {
                 if (event?.action == MotionEvent.ACTION_DOWN) {
@@ -40,11 +40,13 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                     posInicialX = event.x.toInt()
                     posInicialY = event.y.toInt()
                 } else if (event?.action == MotionEvent.ACTION_MOVE) {
-                    //Cuando se detecta movimiento cojo la cordenada de movimiento
+                    //Cuando se detecta movimiento cojo la cordenada de movimiento --> a donde se ha movido
                     x = event.x.toInt()
                     y = event.y.toInt()
-                    //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia --> direccion y sentido
+                    //Resto la cordenada de movimiento a la cordenda inicial para ver la diferencia --> direccion, sentido y magnitud
+                    //Parte clave para que funcione bien
                     val coordenadas: String =
+                        //Multiplico por 3 para que vaya mas rapido el raton
                         ((x - posInicialX) * 3).toString() + " " + ((y - posInicialY) * 3).toString()
                     //Esa coordenada la envio al servidor y controlo el movimiento del raton desde alli
                     if (esRelleno()) {
@@ -57,7 +59,6 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                             coordenadas
                         )
                         hilo.start()
-                        
                     }
                 }
             }

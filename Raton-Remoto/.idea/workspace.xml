@@ -11,16 +11,18 @@
   <component name="ChangeListManager">
     <list default="true" id="0c837ea9-7e19-432f-b4b8-48e35d7b347d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/Hilo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/Hilo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity2.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/Servidor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/dialogs/DialogoSesion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/dialogs/DialogoSesion.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Servidor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[9b2c8df2]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\lopez\.android\avd\Pixel_API_31_PMDM.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />

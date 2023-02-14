@@ -27,30 +27,30 @@ public class Servidor {
             System.out.println(InetAddress.getLocalHost());
             System.out.println("Puerto: " + socket);
 
-            //creo ServerSocket y lo mantengo abierto
+            //Creo ServerSocket y lo dejo abierto
             servidor = new ServerSocket(socket);
             while (true) {
                 Socket cliente = servidor.accept();
                 br = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
                 cordenadas = br.readLine();
 
-                //comparo si se ha hecho pulsacion en boton o en el SurfaceView
+                //Compruebo si se ha hecho pulsacion en boton o en el SurfaceView
                 if (cordenadas.equals("der")) {
                     control.mouseRelease(InputEvent.getMaskForButton(3));
                 } else if (cordenadas.equals("izq")) {
                     control.mousePress(InputEvent.getMaskForButton(1));
                     control.mouseRelease(InputEvent.getMaskForButton(1));
                 } else {
-                    //si es pulsacion de SuerfaceView
-                    //cojo coordenadas pasadas por cliente (app android)
+                    //Si es pulsacion de SuerfaceView
+                    //Cojo coordenadas pasadas por cliente (App android)
                     int movimientoX = (Integer.parseInt(cordenadas.split(" ")[0])) / 100;
                     int movimientoY = (Integer.parseInt(cordenadas.split(" ")[1])) / 100;
 
-                    //cojo la posicion actual del raton
+                    //Cojo la posicion actual del raton
                     cordX = MouseInfo.getPointerInfo().getLocation().x;
                     cordY = MouseInfo.getPointerInfo().getLocation().y;
 
-                    //muevo raton sumando las cordenadas pasadas mas la posicion actual
+                    //Muevo raton sumando las cordenadas pasadas mas la posicion actual
                     control.mouseMove(movimientoX + cordX, movimientoY + cordY);
 
 

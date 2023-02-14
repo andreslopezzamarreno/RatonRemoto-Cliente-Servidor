@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec
 
 class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
 
-    //En esta clase esta la apertura del dialogo/cifrado/login
+    //En esta clase esta el dialogo,cifrado y login
     //Parte grafia de esta clase --> activity_main.xml
     private lateinit var binding: ActivityMainBinding
     private lateinit var usuarioPasado: Usuario
@@ -22,19 +22,19 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //Controlo pulsacion del boton para abrir dialogo de login (DialogoSesion)
+        //Controlo pulsacion del boton para abrir dialogo de login (DialogoSesion.kt)
         //Devuelve un Usuario en metodo PasarUsuario (Justo abajo) por interfaz implementada en DialogoSesion.kt
         binding.inicioSesion.setOnClickListener {
-            //parte grafica dialogo --> dialogo_inicio_sesion.xml
+            //Parte grafica dialogo --> dialogo_inicio_sesion.xml
             DialogoSesion().show(supportFragmentManager, "")
         }
     }
 
     override fun pasarUsuario(usuario: Usuario) {
-        //llega usuario del dialogo DialogoSesion y cifro su contraseña
+        //Llega usuario del dialogo DialogoSesion.kt y cifro su contraseña
         cifrar(usuario)
         if (login()) {
-            //si hace login --> accede al raton (MainActivity2)
+            //Si hace login --> accede al raton (MainActivity2.kt)
             val intent = Intent(applicationContext, MainActivity2::class.java)
             startActivity(intent)
         } else {
@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
     }
 
     private fun cifrar(usuario: Usuario) {
-        //cifrar
+        //Cifrar
         //Creo clave de cifrado eh sistema AES desde base64
         val byteSecretKey: ByteArray = "aG9sYXF1ZXRsYQ==".toByteArray()
         val secretKeySpec = SecretKeySpec(byteSecretKey, "AES")
         val cipher = Cipher.getInstance("AES")
-        //inico cifrado con clave secreta
+        //Inico cifrado con clave secreta
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec)
         //Cifro la contraseña del usuario pasado y lo convierto a String
         val mensajeEncriptado: ByteArray = cipher.doFinal(usuario.pass.toByteArray())
@@ -58,29 +58,30 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
         usuario.pass = passEncriptada
         //Asigno usuario con contraseña cifrada a usuarioPasado
         usuarioPasado = usuario
-        /*
-        //descifrado
+
+    /*
+        //Descifrado
         cipher.init(Cipher.DECRYPT_MODE,secretKeySpec)
         val decipherBytes: ByteArray = cipher.doFinal(mensajeEncriptado)
         val texto2 = String(decipherBytes)
         println(texto2)
-         */
+    */
     }
 
     private fun login(): Boolean {
-        //leo archivo usuarioregistro.txt en la carpera res/raw
-        //si algun usuario coincide con el usuario que esta intentando acceder --> hace login
+        //Leo archivo usuarioregistro.txt en la carpera res/raw
+        //Si algun usuario coincide con el usuario que esta intentando acceder --> hace login
         val lectura: String?
         val br: BufferedReader
         val filename = "usuarioregistro"
-        //abro inputStream para poder leer el documento usuarioregistro.txt
+        //Abro inputStream para poder leer el documento usuarioregistro.txt
         val inputStream = resources.openRawResource(
             resources.getIdentifier(
                 filename,
                 "raw", packageName
             )
         )
-        //Leo archivo y comparo linea por linea
+        //Leo archivo y compruebo linea por linea
         br = BufferedReader(InputStreamReader(inputStream))
         do {
             lectura = br.readLine()
