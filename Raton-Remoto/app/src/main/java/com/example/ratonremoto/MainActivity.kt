@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
         }
     }
 
+
     override fun pasarUsuario(usuario: Usuario) {
         //Llega usuario del dialogo DialogoSesion.kt y cifro su contraseña
         cifrar(usuario)

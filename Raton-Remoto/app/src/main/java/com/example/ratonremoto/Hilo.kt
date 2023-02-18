@@ -1,7 +1,11 @@
 package com.example.ratonremoto
 
+import android.os.Environment
+import java.io.DataOutputStream
 import java.io.PrintWriter
 import java.net.Socket
+import javax.net.ssl.SSLSocket
+import javax.net.ssl.SSLSocketFactory
 
 
 class Hilo(private var ip: String,private var puerto: Int, private var cord: String) : Thread() {
@@ -24,4 +28,24 @@ class Hilo(private var ip: String,private var puerto: Int, private var cord: Str
         out.close()
         client.close()
     }
+    /* lateinit var sfact: SSLSocketFactory
+    private lateinit var cliente: SSLSocket
+    private lateinit var flujoSalida: DataOutputStream
+
+    override fun run() {
+        super.run()
+        System.setProperty("javax.net.ssl.trustStore", "AlmacenSrv")
+        System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
+
+        sfact = SSLSocketFactory.getDefault() as SSLSocketFactory
+        cliente = sfact.createSocket(ip,puerto) as SSLSocket
+
+        flujoSalida = DataOutputStream(cliente.getOutputStream())
+
+        flujoSalida.writeUTF("klk")
+
+        cliente.close()
+        flujoSalida.close()
+
+    }*/
 }
