@@ -10,21 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c837ea9-7e19-432f-b4b8-48e35d7b347d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/AlmacenSrv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Servidor/src/AlmacenSrv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Servidor/src/ServidorPrueba.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/AlmacenSrv" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/AlmacenSrv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/Hilo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/Hilo.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Servidor/src/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/ratonremoto/MainActivity2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/AlmacenSrv" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/out/production/Servidor/AlmacenSrv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/out/production/Servidor/ServidorPrueba.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/AlmacenSrv" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/AlmacenSrv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Servidor/src/ServidorPrueba.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Servidor/src/ServidorSeguro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\lopez\.android\avd\Pixel_API_31_PMDM.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[9b2c8df2]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -39,7 +42,9 @@
     </option>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="BUILD_TARGET_KEY" value="apk" />
+    <option name="EXPORT_PRIVATE_KEY" value="false" />
+    <option name="KEY_STORE_PATH" value="C:\Users\lopez\Documents\Github\RatonRemoto-Cliente-Servidor\Raton-Remoto\app\src\main\java\com\example\ratonremoto\fima.jks" />
+    <option name="KEY_ALIAS" value="key0" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,6 +61,9 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ApkExportedModule" value="RatonRemoto.app" />
+    <property name="BundleExportedModule" value="RatonRemoto.app" />
+    <property name="ExportApk.ApkPath" value="C:\Users\lopez\Documents\Github\RatonRemoto-Cliente-Servidor\Raton-Remoto\app" />
+    <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
@@ -77,6 +85,8 @@
       <recent name="C:\Users\lopez\Documents\Github\RatonRemoto-Cliente-Servidor\Raton-Remoto\app\src\main\java\com\example\ratonremoto" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lopez\Documents\Github\RatonRemoto-Cliente-Servidor\Raton-Remoto\app\src\main\java\com\example\ratonremoto" />
+      <recent name="C:\Users\lopez\Documents\Github\RatonRemoto-Cliente-Servidor\Raton-Remoto\app\src\main\res\raw" />
       <recent name="C:\Users\lopez\Documents\Github\Programacios_servicios_procesos\EntregaFinal\app\src\main\res\raw" />
     </key>
     <key name="android.template.-1032611268">

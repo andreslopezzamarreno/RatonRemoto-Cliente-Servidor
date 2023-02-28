@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity(), DialogoSesion.OnDialogoInterfaz {
                 "raw", packageName
             )
         )
+
         //Leo archivo y compruebo linea por linea
         br = BufferedReader(InputStreamReader(inputStream))
         do {

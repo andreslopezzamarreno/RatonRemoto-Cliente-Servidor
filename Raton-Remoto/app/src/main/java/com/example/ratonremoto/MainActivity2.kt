@@ -54,6 +54,7 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                         //Sin añadir el hilo da error -> android.os.NetworkOnMainThreadException
                         //Creo hilo y paso las coordenadas de movimiento al servidor
                         hilo = Hilo(
+                            applicationContext,
                             binding.textServidor.text.toString(),
                             binding.textPuerto.text.toString().toInt(),
                             coordenadas
@@ -78,9 +79,11 @@ class MainActivity2 : AppCompatActivity(), OnTouchListener, OnClickListener {
                 mensaje = "izq"
             }
         }
-        //Sea boton izquierdo o derecho envio el mensaje y controlo desde servidor
+        //Sea boton izquierd
+        // o o derecho envio el mensaje y controlo desde servidor
         if (esRelleno()) {
             hilo = Hilo(
+                applicationContext,
                 binding.textServidor.text.toString(),
                 binding.textPuerto.text.toString().toInt(),
                 mensaje

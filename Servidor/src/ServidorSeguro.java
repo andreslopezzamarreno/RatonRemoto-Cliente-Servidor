@@ -2,17 +2,22 @@ import java.io.*;
 import java.net.InetAddress;
 import javax.net.ssl.*;
 
-public class ServidorPrueba {
+public class ServidorSeguro {
     public static void main(String[] arg) throws IOException {
-        int puerto = 5556;
+
+        //intento de ServerSocket seguro, el cliente(android no lee el certificado)
+        //utilizar Servidor.java
+        int puerto = 9999;
         SSLSocket clienteConectado;
         DataInputStream flujoEntrada ;
 
-        System.setProperty("javax.net.ssl.keyStore", "src/AlmacenSrv");
-        System.setProperty("javax.net.ssl.keyStorePassword", "1234567");
+
+        System.setProperty("javax.net.ssl.trustStore", "src/AlmacenSrv");
+        System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
 
         System.out.println(InetAddress.getLocalHost());
         System.out.println("Puerto: " + puerto);
+
         SSLServerSocketFactory sfact = (SSLServerSocketFactory) SSLServerSocketFactory
                 .getDefault();
         SSLServerSocket servidorSSL = (SSLServerSocket) sfact
@@ -20,20 +25,8 @@ public class ServidorPrueba {
 
         clienteConectado = (SSLSocket) servidorSSL.accept();
         flujoEntrada = new DataInputStream(clienteConectado.getInputStream());
+        System.out.println(flujoEntrada.readUTF());
 
-        // EL CLIENTE ME ENVIA UN MENSAJE
-        while (puerto<-1) {
-            System.out.println(flujoEntrada.readUTF());
-        }
-
-
-        //flujoSalida = new DataOutputStream(clienteConectado.getOutputStream());
-
-        // ENVIO UN SALUDO AL CLIENTE
-        //flujoSalida.writeUTF("Saludos al cliente del servidor");
-
-        // CERRAR STREAMS Y SOCKETS
-        //flujoSalida.close();
         flujoEntrada.close();
         clienteConectado.close();
         servidorSSL.close();

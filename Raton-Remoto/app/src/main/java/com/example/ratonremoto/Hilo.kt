@@ -1,14 +1,16 @@
 package com.example.ratonremoto
 
-import android.os.Environment
-import java.io.DataOutputStream
-import java.io.PrintWriter
+import android.content.Context
+import kotlinx.coroutines.Dispatchers.Main
+import java.io.*
 import java.net.Socket
+import java.security.cert.CertificateFactory
 import javax.net.ssl.SSLSocket
 import javax.net.ssl.SSLSocketFactory
 
 
-class Hilo(private var ip: String,private var puerto: Int, private var cord: String) : Thread() {
+
+class Hilo(var context: Context,private var ip: String,private var puerto: Int, private var cord: String) : Thread() {
 
     //PARA QUE FUNCIONE Y NO SALTE -> socket failed: eperm (operation not permitted)
     // Añadir al AndroidManifest.xml la siguiente linea:
@@ -28,24 +30,33 @@ class Hilo(private var ip: String,private var puerto: Int, private var cord: Str
         out.close()
         client.close()
     }
-    /* lateinit var sfact: SSLSocketFactory
+
+
+    //Intento de hacer conexion con Socket seguro
+    //No funciona leer el certificado
+    /*lateinit var sfact: SSLSocketFactory
     private lateinit var cliente: SSLSocket
     private lateinit var flujoSalida: DataOutputStream
+    private lateinit var flujoEntrada: DataInputStream
 
     override fun run() {
         super.run()
-        System.setProperty("javax.net.ssl.trustStore", "AlmacenSrv")
-        System.setProperty("javax.net.ssl.trustStorePassword", "1234567");
+        val filename = CertificateFactory.getInstance("X.509").generateCertificate(FileInputStream("com/example/ratonremoto/AlmacenSrv"))
+        println(filename)
+        //System.setProperty("javax.net.ssl.trustStore", )
+        System.setProperty("javax.net.ssl.trustStorePassword", "1234567")
 
         sfact = SSLSocketFactory.getDefault() as SSLSocketFactory
         cliente = sfact.createSocket(ip,puerto) as SSLSocket
-
         flujoSalida = DataOutputStream(cliente.getOutputStream())
 
         flujoSalida.writeUTF("klk")
 
+        /*flujoEntrada = DataInputStream(cliente.inputStream)
+        println(flujoEntrada.readUTF())
+        flujoEntrada.close()*/
+
         cliente.close()
         flujoSalida.close()
-
     }*/
 }
